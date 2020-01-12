@@ -8,24 +8,35 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:background="#d3d3d3">
+            android:theme="@style/Theme.AppCompat.NoActionBar">
 
                 <TextView
                     android:id="@+id/note_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
-                    android:text="Note: You can zoom the Image to precisely select your seat"
+                    android:text="Zoom the Image to precisely select your seat"
                     android:layout_margin="10dp"
                     app:layout_constraintTop_toTopOf="parent"
+                    android:textColor="@android:color/black"/>
+
+                <TextView
+                    android:id="@+id/symbol"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="@string/unavailable"
+                    android:drawableStart="@drawable/gray_symbol"
+                    android:layout_margin="10dp"
+                    android:drawablePadding="10dp"
+                    app:layout_constraintTop_toBottomOf="@id/note_text"
                     android:textColor="@android:color/black"/>
 
                 <by.anatoldeveloper.hallscheme.view.ZoomableImageView
                     android:id="@+id/zoomable_image"
                     android:layout_width="match_parent"
                     android:layout_height="400dp"
-                    app:layout_constraintTop_toBottomOf="@id/note_text"
+                    app:layout_constraintTop_toBottomOf="@id/symbol"
                     app:layout_constraintBottom_toTopOf="@id/done_buttton"/>
 
                 <Button

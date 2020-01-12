@@ -15,4 +15,9 @@
     <string name="movie_name">Movie Name</string>
     <string name="time">Time :</string>
     <string name="all_bookings">All Bookings</string>
+    <string name="cinema2">PVR: Forum Mall, Koramangala</string>
+    <string name="cinema1">CinePolis: OrionMall, Rajaji Nagar</string>
+    <string name="cinema3">PVR: Vega City, Bannerghatta Road</string>
+    <string name="cinema4">PVR: Phoenix Marketcity Mall, Whitefield Road</string>
+    <string name="unavailable">: Unavailable Seats</string>
 </resources>
