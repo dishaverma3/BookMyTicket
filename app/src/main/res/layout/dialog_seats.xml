@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:background="#d3d3d3">
+
+                <TextView
+                    android:id="@+id/note_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="Note: You can zoom the Image to precisely select your seat"
+                    android:layout_margin="10dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textColor="@android:color/black"/>
+
+                <by.anatoldeveloper.hallscheme.view.ZoomableImageView
+                    android:id="@+id/zoomable_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    app:layout_constraintTop_toBottomOf="@id/note_text"
+                    app:layout_constraintBottom_toTopOf="@id/done_buttton"/>
+
+                <Button
+                    android:id="@+id/done_buttton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/done"
+                    android:layout_margin="20dp"
+                    android:textSize="16sp"
+                    style="@style/Widget.MaterialComponents.Button"
+                    app:layout_constraintTop_toBottomOf="@id/zoomable_image"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

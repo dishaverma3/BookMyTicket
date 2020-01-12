@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#d3d3d3"
+    tools:context=".ui.BookTicket.BookTicketActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="60dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/book_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="2dp"
+                android:layout_margin="10dp"
+                android:layout_marginBottom="60dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:paddingTop="12dp"
+                    android:paddingStart="15dp"
+                    android:paddingBottom="15dp"
+                    android:paddingEnd="10dp"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent"
+                    >
+
+                    <TextView
+                        android:id="@+id/movie_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"
+                        android:text="@string/movie_name"
+                        android:layout_margin="10dp"
+                        android:textColor="@android:color/black"/>
+
+                    <TextView
+                        android:id="@+id/selected_seats"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:text="@string/selected_seats"
+                        android:layout_margin="10dp"
+                        android:textColor="@android:color/black"/>
+
+                    <Button
+                        android:id="@+id/scheme_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/show_seats"
+                        android:layout_marginStart="10dp"
+                        android:textSize="16sp"
+                        style="@style/Widget.MaterialComponents.Button"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/total_persons"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:text="@string/no_of_persons"
+                        android:layout_margin="10dp"
+                        android:textColor="@android:color/black"/>
+
+                    <TextView
+                        android:id="@+id/location"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:text="@string/select_location"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:textColor="@android:color/black"/>
+
+                    <RadioGroup
+                        android:id="@+id/location_radio_group"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp">
+
+                        <RadioButton
+                            android:id="@+id/location1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="OrionMall - Rajaji Nagar"/>
+
+                        <RadioButton
+                            android:id="@+id/location2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="OrionMall - Rajaji Nagar"/>
+
+                        <RadioButton
+                            android:id="@+id/location3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="OrionMall - Rajaji Nagar"/>
+
+                        <RadioButton
+                            android:id="@+id/location4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="OrionMall - Rajaji Nagar"/>
+
+                    </RadioGroup>
+
+                    <LinearLayout
+                        android:id="@+id/time_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            app:layout_constraintHorizontal_chainStyle="spread_inside"
+                            android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/time1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:padding="10dp"
+                            android:layout_marginStart="20dp"
+                            android:text="10 A.M"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/time2"
+                            app:layout_constraintHorizontal_chainStyle="spread_inside"
+                            android:background="@drawable/border"
+                            android:textColor="@android:color/black"/>
+
+                        <TextView
+                            android:id="@+id/time2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:padding="10dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/time1"
+                            app:layout_constraintEnd_toStartOf="@id/time3"
+                            android:background="@drawable/border"
+                            android:text="12 P.M"
+                            android:textColor="@android:color/black"/>
+
+                        <TextView
+                            android:id="@+id/time3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:padding="10dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/time2"
+                            app:layout_constraintEnd_toStartOf="@id/time4"
+                            android:background="@drawable/border"
+                            android:text="3 P.M"
+                            android:textColor="@android:color/black"/>
+
+                        <TextView
+                            android:id="@+id/time4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:padding="10dp"
+                            android:layout_marginEnd="20dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/time3"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:background="@drawable/border"                            android:text="4 P.M"
+                            android:textColor="@android:color/black"/>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/book_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/book_ticket"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/colorAccent"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textSize="24sp"
+        tools:targetApi="m"
+        android:focusable="true"
+        tools:ignore="UnusedAttribute" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

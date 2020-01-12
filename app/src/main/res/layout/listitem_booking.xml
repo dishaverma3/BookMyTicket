@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    app:cardElevation="3dp"-->
+<!--    app:cardCornerRadius="2dp"-->
+<!--    android:padding="10dp"-->
+<!--    android:clickable="true"-->
+<!--    android:foreground="?android:attr/selectableItemBackground"-->
+<!--    android:focusable="true">-->
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#d3d3d3"
+        >
+
+    <com.vipulasri.ticketview.TicketView
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_margin="10dp"
+        android:id="@+id/ticketView"
+        app:ticketOrientation="vertical"
+        app:ticketScallopRadius="10dp"
+        app:ticketShowBorder="false"
+        app:ticketScallopPositionPercent="50"
+        app:ticketShowDivider="false"
+        app:ticketDividerType="dash"
+        app:ticketDividerPadding="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:ticketElevation="14dp" />
+
+    <TextView
+        android:id="@+id/movie_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="@string/movie_name"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"/>
+
+        <TextView
+            android:id="@+id/selected_seats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/selected_seats"
+            app:layout_constraintTop_toBottomOf="@id/movie_name"
+            app:layout_constraintStart_toStartOf="@id/movie_name"
+            app:layout_constraintEnd_toEndOf="@id/movie_name" />
+
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="25dp"
+            app:layout_constraintTop_toBottomOf="@id/selected_seats"
+            app:layout_constraintStart_toStartOf="@id/selected_seats"
+            app:layout_constraintEnd_toEndOf="@id/selected_seats"
+            android:text="@string/selected_location" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintStart_toEndOf="@id/selected_seats"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/qrcode"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toTopOf="@id/movie_name"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
