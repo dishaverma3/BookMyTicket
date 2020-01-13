@@ -1,7 +1,10 @@
 package com.example.bookmyticket.ui.MovieList;
 
 import android.app.Application;
+import android.content.Context;
+import android.net.ConnectivityManager;
 import android.util.Log;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -33,6 +36,7 @@ public class MovieListViewModel extends AndroidViewModel {
     void setMovieList()
     {
         Log.d("ttteeesssttt", "setMovieList: ");
+
         movieListRequest();
     }
 
@@ -66,5 +70,11 @@ public class MovieListViewModel extends AndroidViewModel {
     List<Movie> getMovies() {
 
         return movieArrayList;
+    }
+
+    boolean isNetworkConnected() {
+        ConnectivityManager cm = (ConnectivityManager) getApplication().getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        return cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected();
     }
 }

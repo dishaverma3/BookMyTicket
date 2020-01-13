@@ -7,6 +7,9 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
+            android:background="@drawable/rounded_border"
+            android:padding="20dp"
+            android:layout_margin="10dp"
             android:layout_height="wrap_content"
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
@@ -35,7 +38,7 @@
                 <by.anatoldeveloper.hallscheme.view.ZoomableImageView
                     android:id="@+id/zoomable_image"
                     android:layout_width="match_parent"
-                    android:layout_height="400dp"
+                    android:layout_height="250dp"
                     app:layout_constraintTop_toBottomOf="@id/symbol"
                     app:layout_constraintBottom_toTopOf="@id/done_buttton"/>
 
@@ -46,6 +49,7 @@
                     android:text="@string/done"
                     android:layout_margin="20dp"
                     android:textSize="16sp"
+                    android:background="@color/colorAccent"
                     style="@style/Widget.MaterialComponents.Button"
                     app:layout_constraintTop_toBottomOf="@id/zoomable_image"
                     app:layout_constraintStart_toStartOf="parent"

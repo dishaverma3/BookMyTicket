@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.RatingBar;
@@ -19,6 +20,8 @@ import com.example.bookmyticket.R;
 import com.example.bookmyticket.model.Details;
 import com.example.bookmyticket.model.Genre;
 import com.example.bookmyticket.ui.BookTicket.BookTicketActivity;
+import com.example.bookmyticket.ui.Player.PlayerActivity;
+import com.google.android.material.snackbar.Snackbar;
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator;
 
 public class MovieDetailsActivity extends AppCompatActivity {
@@ -43,27 +46,16 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
         init();
 
-        movieDetailsViewModel.movieDetailsRequest(id);
-        movieDetailsViewModel.movieVideoLink(id);
-        movieDetailsViewModel.moviePosterImage(id);
-
-        progressBar.setVisibility(View.VISIBLE);
         movieDetailsViewModel.movieDetails.observe(this, this::setData);
-        progressBar.setVisibility(View.GONE);
-
-        progressBar.setVisibility(View.VISIBLE);
         movieDetailsViewModel.videoKey.observe(this, this::setTrailer);
-        progressBar.setVisibility(View.GONE);
-
-
-        progressBar.setVisibility(View.VISIBLE);
         movieDetailsViewModel.posterImages.observe(this, this::setViewPager);
 
-        progressBar.setVisibility(View.GONE);
-
         trailer.setOnClickListener(v -> {
-            Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.youtube.com/watch?v=" + videoKey));
-            startActivity(webIntent);
+            Intent i = new Intent(this,PlayerActivity.class);
+            Bundle b = new Bundle();
+            b.putString("videoKey",videoKey);
+            i.putExtras(b);
+            startActivity(i);
         });
 
         bookButton.setOnClickListener(v -> {
@@ -79,6 +71,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this, strings);
         viewPager.setAdapter(viewPagerAdapter);
         dotsIndicator.setViewPager(viewPager);
+        progressBar.setVisibility(View.VISIBLE);
     }
 
     private void setTrailer(String key) {
@@ -102,6 +95,23 @@ public class MovieDetailsActivity extends AppCompatActivity {
         id = getIntent().getExtras().getInt("movie_id");
 
         trailer.setEnabled(false);
+        progressBar.setVisibility(View.VISIBLE);
+
+
+        if(movieDetailsViewModel.isNetworkConnected())
+        {
+            movieDetailsViewModel.movieDetailsRequest(id);
+            movieDetailsViewModel.movieVideoLink(id);
+            movieDetailsViewModel.moviePosterImage(id);
+        }
+        else {
+            Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content),"No Internet Connection !!",Snackbar.LENGTH_LONG);
+            (snackbar.getView()).getLayoutParams().width = ViewGroup.LayoutParams.MATCH_PARENT;
+            snackbar.show();
+
+            progressBar.setVisibility(View.GONE);
+        }
+
     }
 
     private void setData(Details details) {

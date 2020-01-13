@@ -20,4 +20,5 @@
     <string name="cinema3">PVR: Vega City, Bannerghatta Road</string>
     <string name="cinema4">PVR: Phoenix Marketcity Mall, Whitefield Road</string>
     <string name="unavailable">: Unavailable Seats</string>
+    <string name="player_error">error</string>
 </resources>
