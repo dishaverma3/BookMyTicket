@@ -15,7 +15,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.Player.PlayerActivity"></activity>
+        <activity android:name=".ui.MovieList.MovieListActivity"></activity>
+        <activity android:name=".ui.Player.PlayerActivity" />
         <activity
             android:name=".ui.AllBookings.AllBookingsActivity"
             android:label="My Bookings" />
@@ -28,7 +29,8 @@
         <activity
             android:name=".ui.MovieDetails.MovieDetailsActivity"
             android:label="Movie Details" />
-        <activity android:name=".ui.MovieList.MovieListActivity">
+        <activity android:name=".ui.Splash.SplashActivity"
+            android:theme="@style/Theme.Design.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
