@@ -16,7 +16,7 @@ public interface BookingDAO {
     void insertBookingDetails(BookingEntity booking);
 
     @Query("SELECT * FROM booking_table")
-    LiveData<List<BookingEntity>> fetchAllDetails();
+    List<BookingEntity> fetchAllDetails();
 
     @Delete
     void deleteDetails(BookingEntity bookingEntity);

@@ -1,6 +1,8 @@
 package com.example.bookmyticket.ui.AllBookings;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,10 +10,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bookmyticket.R;
 import com.example.bookmyticket.data.local.db.BookingEntity;
+import com.example.bookmyticket.ui.ConfirmBooking.ConfirmTicketActivity;
+import com.vipulasri.ticketview.TicketView;
 
 import java.util.List;
 
@@ -21,6 +26,7 @@ public class AllBookingsAdapter extends RecyclerView.Adapter<AllBookingsAdapter.
     private Context context;
 
     public AllBookingsAdapter(List<BookingEntity> list, Context context) {
+        Log.d("booking--", "AllBookingsAdapter: "+list.size());
         this.list = list;
         this.context = context;
     }
@@ -37,10 +43,20 @@ public class AllBookingsAdapter extends RecyclerView.Adapter<AllBookingsAdapter.
         BookingEntity listItem = list.get(position);
 
         holder.movieName.setText(listItem.getMovieName());
-        holder.selectedSeats.setText(listItem.getSeatName());
+        holder.selectedSeats.setText("Seats : "+listItem.getSeatName());
         holder.location.setText(listItem.getLocation());
 
-
+        holder.layout.setOnClickListener(v -> {
+            Intent i = new Intent(context.getApplicationContext(), ConfirmTicketActivity.class);
+            Bundle b = new Bundle();
+            b.putString("Seats",listItem.getSeatName());
+            b.putString("no_of_persons",listItem.getNoOfPersons()+"");
+            b.putString("location",listItem.getLocation());
+            b.putString("time",listItem.getTime());
+            b.putString("movie_name",listItem.getMovieName());
+            i.putExtras(b);
+            context.startActivity(i);
+        });
     }
 
     @Override
@@ -48,23 +64,20 @@ public class AllBookingsAdapter extends RecyclerView.Adapter<AllBookingsAdapter.
         return list.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView movieName, selectedSeats, location;
-        public ViewHolder(@NonNull View itemView)
+        ConstraintLayout layout;
+
+        ViewHolder(@NonNull View itemView)
         {
             super(itemView);
 
             movieName = itemView.findViewById(R.id.movie_name);
             selectedSeats = itemView.findViewById(R.id.selected_seats);
             location = itemView.findViewById(R.id.location);
+            layout = itemView.findViewById(R.id.root_view);
         }
     }
 
-    void setList(List<BookingEntity> bookingList)
-    {
-        Log.d("booking", "setList: LIST - "+bookingList.get(0).getMovieName());
-        list = bookingList;
-        notifyDataSetChanged();
-    }
 }

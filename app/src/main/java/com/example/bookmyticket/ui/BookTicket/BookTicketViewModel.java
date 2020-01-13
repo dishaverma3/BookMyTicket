@@ -2,6 +2,7 @@ package com.example.bookmyticket.ui.BookTicket;
 
 import android.app.Application;
 import android.graphics.Color;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -149,7 +150,11 @@ public class BookTicketViewModel extends AndroidViewModel {
     }
 
     public void insertBookingDetails(BookingEntity bookingDetails) {
+        Log.d("booking--", "insertBookingDetails: before");
         appDatabase.bookingDAO().insertBookingDetails(bookingDetails);
+        Log.d("booking--", "insertBookingDetails: after");
+        Log.d("booking--", "openConfirmTicket: size "+appDatabase.bookingDAO().fetchAllDetails().size());
+
     }
 
     public void timeSelection(int id) {

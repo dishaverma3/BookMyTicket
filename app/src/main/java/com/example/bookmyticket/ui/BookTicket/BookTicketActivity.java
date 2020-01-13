@@ -119,6 +119,7 @@ public class BookTicketActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void openConfirmTicket() {
+        Log.d("booking--", "openConfirmTicket: clicked");
         if (TextUtils.isEmpty(seatsValue) )
         {
             selectedSeatsView.setError("Required");
@@ -132,8 +133,10 @@ public class BookTicketActivity extends AppCompatActivity implements View.OnClic
             radioLocation4.setTextColor(Color.RED);
         }else {
 
+            Log.d("booking--", "openConfirmTicket: else part");
+
             final String time = bookTicketViewModel.timeFinal;
-            new Thread(() -> bookTicketViewModel.insertBookingDetails(new BookingEntity(getIntent().getExtras().getString("movie_name"),time,Integer.valueOf(noOfPersonsValue),locationSelected,seatsValue)));
+            new Thread(() -> bookTicketViewModel.insertBookingDetails(new BookingEntity(getIntent().getExtras().getString("movie_name"),time,Integer.valueOf(noOfPersonsValue),locationSelected,seatsValue))).start();
             Intent i = new Intent(getApplicationContext(), ConfirmTicketActivity.class);
             Bundle b = new Bundle();
             b.putString("Seats",seatsValue);
