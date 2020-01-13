@@ -105,4 +105,8 @@ public class MovieDetailsViewModel extends AndroidViewModel {
         return cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected();
     }
 
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+    }
 }

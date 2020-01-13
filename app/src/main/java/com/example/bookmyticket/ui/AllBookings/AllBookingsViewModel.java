@@ -52,7 +52,6 @@ public class AllBookingsViewModel extends AndroidViewModel {
     @Override
     protected void onCleared() {
         super.onCleared();
-        appDatabase.close();
         mList = null;
     }
 }

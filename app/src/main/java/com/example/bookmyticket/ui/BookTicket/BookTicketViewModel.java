@@ -167,4 +167,10 @@ public class BookTicketViewModel extends AndroidViewModel {
         }
 
     }
+
+
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+    }
 }

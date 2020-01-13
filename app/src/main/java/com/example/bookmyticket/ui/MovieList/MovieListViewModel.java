@@ -77,4 +77,11 @@ public class MovieListViewModel extends AndroidViewModel {
 
         return cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected();
     }
+
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+        _onMovieFetched = null;
+        movieArrayList = null;
+    }
 }
