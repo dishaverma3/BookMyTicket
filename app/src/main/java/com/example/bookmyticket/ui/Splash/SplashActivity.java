@@ -44,4 +44,5 @@ public class SplashActivity extends AppCompatActivity {
 
         timer.start();
     }
+    //comment added for Testing c
 }
